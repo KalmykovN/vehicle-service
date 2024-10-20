@@ -1,6 +1,4 @@
 # Ignore build directories
-/application/target/
-/api/target/
 /target/
 
 /out/
@@ -12,19 +10,15 @@
 /application/.idea/
 /api/.idea/
 /*.iml
-/application/*.iml
-/api/*.iml
 
 # Ignore logs
 *.log
 logs/
-/application/logs/
-/api/logs/
+
 
 # Maven specific
 .mvn/
-/application/.mvn/
-/api/.mvn/
+
 !/.mvn/wrapper/maven-wrapper.jar
 pom.xml.tag
 pom.xml.releaseBackup
