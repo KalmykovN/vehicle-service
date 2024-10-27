@@ -3,7 +3,6 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.easyfleet.vehicle</groupId>
     <artifactId>application</artifactId>
     <packaging>jar</packaging>
 
@@ -11,17 +10,31 @@
         <groupId>com.easyfleet.vehicle</groupId>
         <artifactId>parent-module</artifactId>
         <version>0.0.2</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
 
     <dependencies>
+        <!-- Spring Boot starters -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
+
+        <!-- Eureka Client for service discovery -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
+        <!-- Dependency on api module -->
         <dependency>
             <groupId>com.easyfleet.vehicle</groupId>
             <artifactId>api</artifactId>
-            <version>${parent.version}</version>
+            <version>${project.parent.version}</version>
         </dependency>
     </dependencies>
 
