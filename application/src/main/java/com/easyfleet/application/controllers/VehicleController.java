@@ -4,6 +4,8 @@ import com.easyfleet.api.dto.DeviceDTO;
 import com.easyfleet.api.dto.PositionDTO;
 import com.easyfleet.api.dto.VehicleDTO;
 import com.easyfleet.api.enums.DeviceType;
+import com.easyfleet.application.services.IVehicleService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,12 +17,15 @@ import java.math.BigDecimal;
 
 @RestController
 @RequestMapping("/api/v1/vehicles")
+@RequiredArgsConstructor
 public class VehicleController {
+    private final IVehicleService service;
+
     @GetMapping("/{id}")
     public ResponseEntity<VehicleDTO> getOne(@PathVariable Long id) {
-        PositionDTO positionDTO = new PositionDTO(1L, new BigDecimal("43.5453634"), new BigDecimal("11.3453634"), "Via XX Settembre");
-        DeviceDTO deviceDTO = new DeviceDTO(1L, "device-1", "XXX-123", DeviceType.GPS);
-        VehicleDTO vehicleDTO = new VehicleDTO(1L, "Fiat", "GB333CW", deviceDTO, positionDTO);
+        VehicleDTO vehicleDTO = service.getOne(id);
         return new ResponseEntity<>(vehicleDTO, HttpStatus.OK);
     }
+
+
 }
