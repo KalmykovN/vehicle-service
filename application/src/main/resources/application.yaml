@@ -16,3 +16,6 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://${eureka.instance.hostname}:${eureka.instance.port}/eureka
+
+environment:
+  message: Hello! You are using local Spring environment
