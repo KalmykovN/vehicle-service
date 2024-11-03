@@ -14,21 +14,19 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/v1/vehicles")
 @RequiredArgsConstructor
 public class VehicleController {
-    @Value("${environment.message}")
-    private String env;
-
     private final IVehicleService service;
 
-    @GetMapping("/{id}")
-    public ResponseEntity<VehicleDTO> getOne(@PathVariable Long id) {
-        VehicleDTO vehicleDTO = service.getOne(id);
-        return ResponseEntity.ok(vehicleDTO);
-    }
+    @Value("${environment.message}")
+    private String env;
 
     @GetMapping("/ping")
     public ResponseEntity<String> ping() {
         return ResponseEntity.ok(env);
     }
 
-
+    @GetMapping("/{id}")
+    public ResponseEntity<VehicleDTO> getOne(@PathVariable Long id) {
+        VehicleDTO vehicleDTO = service.getOne(id);
+        return ResponseEntity.ok(vehicleDTO);
+    }
 }
