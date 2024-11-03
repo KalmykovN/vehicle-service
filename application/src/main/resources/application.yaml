@@ -1,7 +1,7 @@
 server:
   port: 0
-#  servlet:
-#    context-path: /vehicle-path
+  servlet:
+    context-path: /api
 
 spring:
   application:
